@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New chat</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">ChatJPT</h1>
+      <div class="information">
+        <section>
+          <h2>Examples</h2>
+          <ul>
+            <button class="card">
+              "Explain quantum computing in simple terms"
+            </button>
+            <button class="card">
+              "Got any creative ideas for a 10 year old’s birthday?"
+            </button>
+            <button class="card">
+              "How do I make an HTTP request in Javascript?"
+            </button>
+          </ul>
+        </section>
+        <section>
+          <h2>Capabilities</h2>
+          <ul>
+            <div class="card">
+              Remembers what user said earlier in the conversation
+            </div>
+            <div class="card">Allows user to provide follow-up corrections</div>
+            <div class="card">Trained to decline inappropriate requests</div>
+          </ul>
+        </section>
+        <section>
+          <h2>Limitations</h2>
+          <ul>
+            <div class="card">
+              May occasionally generate incorrect information
+            </div>
+            <div class="card">
+              "Got any creative ideas for a 10 year old’s birthday?"
+            </div>
+            <div class="card">
+              "How do I make an HTTP request in Javascript?"
+            </div>
+          </ul>
+        </section>
+      </div>
+      <form class="input-wrapper" id="chatJPT">
+        <input type="text" />
+        <button type="submit">
+          <svg
+            stroke="#989A9E"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4 mr-1"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <audio
+      id="sound"
+      src="https://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav"
+    ></audio>
+    <script>
+      const form = document.getElementById("chatJPT");
+      const title = document.getElementById("title");
+      const sound = document.getElementById("sound");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        sound.play();
+        title.innerHTML = "ChatJ'aiPété";
+      });
+    </script>
+  </body>
+</html>
