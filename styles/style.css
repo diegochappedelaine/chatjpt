@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+
+:root {
+  font-family: "Roboto", sans-serif;
+  --background: #343541;
+  --primary: #3e3f4b;
+  --text: #ececf1;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+  padding: 0;
+}
+
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 100%;
+  height: 100vh;
+  padding: 0 16px 200px;
+}
+
+.title {
+  margin: 80px 0 40px;
+}
+
+.information {
+  display: flex;
+  gap: 16px;
+}
+
+.information__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.information__section:not(:first-child) {
+  display: none;
+}
+
+.information__section__title {
+  font-weight: 300;
+  margin: 0;
+}
+
+.information__section__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background-color: var(--primary);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  border: none;
+  display: flex;
+  font-weight: 300;
+}
+
+.form {
+  position: absolute;
+  max-width: 600px;
+  margin-top: auto;
+  width: 100%;
+  background: var(--background);
+  padding: 32px 16px;
+  border-top: 1px solid var(--text);
+  bottom: 20px;
+}
+
+.form__input {
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  width: 100%;
+  font-size: 16px;
+  padding: 16px;
+  color: var(--text);
+}
+
+.form__button {
+  display: none;
+}
+
+.form__button:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 600px;
+    padding: 0 16px;
+  }
+
+  .title {
+    margin: 0 0 60px;
+  }
+
+  .information__section:not(:first-child) {
+    display: flex;
+  }
+
+  .form {
+    bottom: 100px;
+    border: none;
+    padding: 0;
+  }
+
+  .form__button {
+    display: block;
+    background: none;
+    position: absolute;
+    right: 16px;
+    top: 2px;
+    cursor: pointer;
+    padding: 16px;
+  }
+}

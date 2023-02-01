@@ -4,54 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New chat</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="icon" type="image/png" href="favicon.svg" />
   </head>
   <body>
-    <div class="container">
-      <h1 id="title">ChatJPT</h1>
-      <div class="information">
-        <section>
-          <h2>Examples</h2>
-          <ul>
-            <button class="card">
-              "Explain quantum computing in simple terms"
-            </button>
-            <button class="card">
+    <main class="container">
+      <header>
+        <h1 class="title" id="title">ChatJPT</h1>
+      </header>
+      <section class="information">
+        <article class="information__section">
+          <h2 class="information__section__title">Examples</h2>
+          <ul class="information__section__list">
+            <li class="card">"Explain quantum computing in simple terms"</li>
+            <li class="card">
               "Got any creative ideas for a 10 year old’s birthday?"
-            </button>
-            <button class="card">
-              "How do I make an HTTP request in Javascript?"
-            </button>
+            </li>
+            <li class="card">"How do I make an HTTP request in Javascript?"</li>
           </ul>
-        </section>
-        <section>
-          <h2>Capabilities</h2>
-          <ul>
-            <div class="card">
+        </article>
+        <article class="information__section">
+          <h2 class="information__section__title">Capabilities</h2>
+          <ul class="information__section__list">
+            <li class="card">
               Remembers what user said earlier in the conversation
-            </div>
-            <div class="card">Allows user to provide follow-up corrections</div>
-            <div class="card">Trained to decline inappropriate requests</div>
+            </li>
+            <li class="card">Allows user to provide follow-up corrections</li>
+            <li class="card">Trained to decline inappropriate requests</li>
           </ul>
-        </section>
-        <section>
-          <h2>Limitations</h2>
-          <ul>
-            <div class="card">
+        </article>
+        <article class="information__section">
+          <h2 class="information__section__title">Limitations</h2>
+          <ul class="information__section__list">
+            <li class="card">
               May occasionally generate incorrect information
-            </div>
-            <div class="card">
+            </li>
+            <li class="card">
               "Got any creative ideas for a 10 year old’s birthday?"
-            </div>
-            <div class="card">
-              "How do I make an HTTP request in Javascript?"
-            </div>
+            </li>
+            <li class="card">"How do I make an HTTP request in Javascript?"</li>
           </ul>
-        </section>
-      </div>
-      <form class="input-wrapper" id="chatJPT">
-        <input type="text" />
-        <button type="submit">
+        </article>
+      </section>
+      <form aria-label="search on chatJPT" class="form" id="chatJPT">
+        <input class="form__input" type="search" autofocus />
+        <button aria-label="search" class="form__button" type="submit">
           <svg
             stroke="#989A9E"
             fill="none"
@@ -69,19 +66,39 @@
           </svg>
         </button>
       </form>
-    </div>
-    <audio
-      id="sound"
-      src="https://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav"
-    ></audio>
+    </main>
+    <audio id="sound"></audio>
     <script>
-      const form = document.getElementById("chatJPT");
-      const title = document.getElementById("title");
-      const sound = document.getElementById("sound");
+      const farts = [
+        "fart-1.wav",
+        "fart-2.wav",
+        "fart-3.wav",
+        "fart-4.wav",
+        "fart-5.mp3",
+        "fart-6.mp3",
+        "fart-7.mp3",
+        "fart-8.wav",
+        "fart-wav-1.wav",
+        "fart-wav-2.wav",
+        "fart-wav-3.wav",
+        "fart-wav-4.wav",
+      ];
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+      const [form, title, sound] = [
+        document.getElementById("chatJPT"),
+        document.getElementById("title"),
+        document.getElementById("sound"),
+      ];
+
+      const playRandomFart = () => {
+        const index = Math.floor(Math.random() * farts.length);
+        sound.src = `https://www.pacdv.com/sounds/fart-sounds/${farts[index]}`;
         sound.play();
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        playRandomFart();
         title.innerHTML = "ChatJ'aiPété";
       });
     </script>
